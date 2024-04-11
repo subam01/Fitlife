@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Fitlife</title>
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      /* background-color: #f5f5f5; */
+      background-color: var(--rich-black-fogra-29-1);
+    }
+
+    .login-container {
+      width: 360px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+    }
+
+    .login-heading {
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 24px;
+      color: var(--coquelicot);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-size: 16px;
+      color: #787878;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      background-color: var(--coquelicot);
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="login-container">
+    <form id="joinForm" class="login-form">
+      <h2 class="login-heading">Join Fitlife</h2>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+      </div>
+      <div class="form-group">
+        <label for="interestedClass">Interested Class</label>
+        <input type="text" id="interestedClass" name="interestedClass" placeholder="Enter your interested class">
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+      </div>
+      <button type="submit">Join Now</button>
+    </form>
+  </div>
+
+  <!-- Include EmailJS library -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    // Initialize EmailJS with your user ID
+    emailjs.init("bv_Y4I_P81ak6AgU7"); // Replace YOUR_USER_ID with your actual EmailJS user ID
+
+    // Add event listener to form submission
+    document.getElementById("joinForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Get form data
+      const formData = {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        interestedClass: document.getElementById("interestedClass").value,
+        email: document.getElementById("email").value
+      };
+
+      // Send email using EmailJS
+      emailjs.send(formData)
+        .then(function(response) {
+          console.log("Email sent successfully!", response);
+          alert("We will reach you shortly."); // Show popup message
+        }, function(error) {
+          console.error("Failed to send email:", error);
+          alert("Failed to send email. Please try again later.");
+        });
+    });
+  </script>
+
+</body>
+
+</html>
