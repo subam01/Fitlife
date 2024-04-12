@@ -32,8 +32,9 @@ The website is developed using HTML, CSS, and JavaScript, with additional librar
 To run the FitLife Gym website locally, follow these steps:
 
 1. Clone this repository to your local machine using `git clone https://github.com/ayushchahal44/Fitlife.git`.
-2. Navigate to the project directory.
-3. Open the `index.html` file in your web browser.
+2. online website `https://myfitlife.netlify.app/#home`.
+3. Navigate to the project directory.
+4. Open the `index.html` file in your web browser.
 
 Alternatively, you can host the website on a web server to make it accessible online.
 
