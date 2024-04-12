@@ -31,7 +31,7 @@ The website is developed using HTML, CSS, and JavaScript, with additional librar
 
 To run the FitLife Gym website locally, follow these steps:
 
-1. Clone this repository to your local machine using `git clone`.
+1. Clone this repository to your local machine using `git clone https://github.com/ayushchahal44/Fitlife.git`.
 2. Navigate to the project directory.
 3. Open the `index.html` file in your web browser.
 
